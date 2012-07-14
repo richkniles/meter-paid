@@ -1,2 +1,30 @@
-<h1>Schedules#edit</h1>
-<p>Find me in app/views/schedules/edit.html.erb</p>
+<div class='row'>
+	<div class = 'span6 offset3'>
+
+		<% if @schedule.errors.any? %>
+			<p>There were <%= pluralize(@schedule.errors.count, "error") %></p>
+			<ul>
+			<% @schedule.errors.full_messages.each do |error| %>
+				<li><%= error %></li>
+			<% end %>
+			</ul>
+		<% end %>
+
+
+		<h1>Schedule Meter Feed</h1>
+		<%= form_for(@schedule) do |f| %>
+	
+			<%= f.label :time %>
+			<%= f.datetime_select :time, default: 10.minutes.from_now, :ampm => true %>
+	
+			<%= f.label :meter %>
+			<%= f.text_field :meter %>
+	
+			<%= f.label :amount %>
+			<%= f.text_field :amount %>
+			<p/><p/>
+			<%= f.submit "Save", method: 'put'%>
+	
+		<% end %>
+	</div>
+</div>

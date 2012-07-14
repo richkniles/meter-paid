@@ -21,12 +21,23 @@ class SchedulesController < ApplicationController
   end
 
   def edit
+    @schedule = Schedule.find(params[:id])
   end
 
   def update
+    @schedule = Schedule.find(params[:id])
+    if (@schedule.update_attributes(params[:schedule]))
+      flash[:success] = "Scheduled feed updated."
+      redirect_to root_path
+    end
+    
   end
 
   def destroy
+    schedule = Schedule.find(params[:id])
+    schedule.destroy
+    flash[:success] = "Scheduled feed canceled"
+    redirect_to root_path
   end
   
   

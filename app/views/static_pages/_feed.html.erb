@@ -14,4 +14,14 @@
 	<tr>
 		<td>Amount:</td>  <td><%= schedule.amount %></td>
 	</tr>
+	<tr>
+		<td >
+			<%= link_to "change", "/schedules/#{schedule.id}/edit"%>
+		</td>
+		<td >
+			<%= link_to "cancel", "/schedules/#{schedule.id}", 
+						method: 'delete', confirm: "You sure?"%>
+		</td>
+	</tr>
+	
 </table>

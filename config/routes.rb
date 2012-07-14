@@ -6,7 +6,7 @@ MeterPaid::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :schedules
+  resources :schedules, only: [:new, :create, :update, :destroy]
   
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

@@ -7,6 +7,7 @@
 				<li><%= link_to "Schedule meter payment", "schedules/new" %></li>
 				<li><%= link_to "Sign out", signout_path %>
 			</ul>
+			<%= image_tag "parkingMeter.jpg", size: "120x200"%>
 		</aside>
 		<aside class='span8'>
 			<%= render 'schedule_list', upcoming_schedules: @upcoming_schedules %>
