@@ -3,6 +3,10 @@
 	<% upcoming_schedules.each do |schedule| %>
 		<%= render 'feed', schedule: schedule %>
 	<% end %>
+	<p></p>
+	<%= link_to "Schedule another", "/schedules/new", class: "btn center"%>
 <% else %>
 	<h2>No Upcoming Scheduled Meter Feeds</h2>
+	<p></p>
+	<%= link_to "Schedule a meter feed", "/schedules/new", class: "btn center"%>
 <% end %>
