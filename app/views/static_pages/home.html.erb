@@ -1,48 +1,26 @@
 <div class = "row">
-	<aside class='span4 offset1'>
-		<% if signed_in? %>
-		<h1>Welcome to Meter-Time!</h1>
-		<h2>What's next?</h2>
+	<% if signed_in? %>
+		<aside class='span4 offset1'>
+			<h1>Welcome to MeterPaid!</h1>
 			<ul>
 				<li><%= link_to "Edit account", "#" %></li>
 				<li><%= link_to "Schedule meter payment", "schedules/new" %></li>
 				<li><%= link_to "Sign out", signout_path %>
 			</ul>
-		<% else %>
-			<h1>Welcome to Meter-Time!</h1>
+		</aside>
+		<aside class='span8'>
+			<%= render 'schedule_list', upcoming_schedules: @upcoming_schedules %>
+		</aside>
+	<% else %>
+		<div class = 'span6 offset2'>
+			<h1>Welcome to MeterPaid!</h1>
+			<h3>Feed the parking meter while you sleep.</h3>
 			<ul>
 				<p/><p/><p/>
 				<li><%= link_to "New user?          Sign up!", signup_path%></li>
 				<p/><p/><p/>
 				<li><%= link_to "Already signed up? Sign in!", signin_path%></li>
 			</ul>
-		<% end %>
-	</aside>
-	<% if signed_in? %>
-		<aside class='span8'>
-			<% if @upcoming_schedules.any? %>
-				<h2>Scheduled Meter Feeds</h2>
-				<% @upcoming_schedules.each do |schedule| %>
-
-					<table>
-						<tr><td colspan="2">- - - - - - - - - - - -</td></tr>
-						<tr>
-							<td>Scheduled for:</td>  <td><%= schedule.time %></td>
-						</tr>
-						<tr>
-							<td colspan='2'><%= "(about #{distance_of_time_in_words_to_now(schedule.time)} from now)" %></td>
-						</tr>
-						<tr>
-							<td>Meter number:</td>  <td><%= schedule.meter %></td>
-						</tr>
-						<tr>
-							<td>Amount:</td>  <td><%= schedule.amount %></td>
-						</tr>
-					</table>
-				<% end %>
-			<% else %>
-				<h2>No Upcoming Scheduled Meter Feeds</h2>
-			<% end %>
-		</aside>
+		</div>
 	<% end %>
 </div>

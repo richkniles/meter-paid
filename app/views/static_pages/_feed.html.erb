@@ -1,0 +1,17 @@
+<table>
+	<tr><td colspan="2">- - - - - - - - - - - -</td></tr>
+	<tr>
+		<td>Scheduled for:</td>  <td><%= schedule.time %></td>
+	</tr>
+	<tr>
+		<td colspan='2'>
+			<%= "(about #{distance_of_time_in_words_to_now(schedule.time)} from now)" %>
+		</td>
+	</tr>
+	<tr>
+		<td>Meter number:</td>  <td><%= schedule.meter %></td>
+	</tr>
+	<tr>
+		<td>Amount:</td>  <td><%= schedule.amount %></td>
+	</tr>
+</table>

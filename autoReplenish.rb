@@ -28,5 +28,5 @@ auth_token = '21b3ac20f26865a84b05b9c8d7f54283'
 @account.calls.create({
   :from => '+14155992671', #trial sandbox #
   :to => '+14152382438',
-  :url => 'http://demo.twilio.com/welcome/voice/' #this needs to have the logic of dialing more numbers
+  :url => 'http://MeterPaid.twilio.com/welcome/voice/' #this needs to have the logic of dialing more numbers
 })

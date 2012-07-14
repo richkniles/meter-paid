@@ -1,0 +1,8 @@
+<% if upcoming_schedules.any? %>
+	<h2>Scheduled Meter Feeds</h2>
+	<% upcoming_schedules.each do |schedule| %>
+		<%= render 'feed', schedule: schedule %>
+	<% end %>
+<% else %>
+	<h2>No Upcoming Scheduled Meter Feeds</h2>
+<% end %>
