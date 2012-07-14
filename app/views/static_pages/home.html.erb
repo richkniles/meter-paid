@@ -1,27 +1,19 @@
+<div class = "container">
 <div class = "row">
 	<% if signed_in? %>
-		<aside class='span4 offset1'>
+		<aside class='span4'>
 			<h1>Welcome to MeterPaid!</h1>
-			<ul>
-				<li><%= link_to "Edit account", "#" %></li>
-				<li><%= link_to "Schedule meter payment", "schedules/new" %></li>
-				<li><%= link_to "Sign out", signout_path %>
-			</ul>
-			<%= image_tag "parkingMeter.jpg", size: "120x200"%>
 		</aside>
-		<aside class='span8'>
+		<aside class='span7 offset1'>
 			<%= render 'schedule_list', upcoming_schedules: @upcoming_schedules %>
 		</aside>
 	<% else %>
-		<div class = 'span6 offset2'>
+		<div class="center hero-unit">
 			<h1>Welcome to MeterPaid!</h1>
 			<h3>Feed the parking meter while you sleep.</h3>
-			<ul>
-				<p/><p/><p/>
-				<li><%= link_to "New user?          Sign up!", signup_path%></li>
-				<p/><p/><p/>
-				<li><%= link_to "Already signed up? Sign in!", signin_path%></li>
-			</ul>
+			<%= link_to "New user? Sign up!", signup_path, class: "btn btn-large btn-primary" %>
+
 		</div>
 	<% end %>
+</div>
 </div>
