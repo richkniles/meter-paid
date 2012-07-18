@@ -1,5 +1,7 @@
 class SchedulesController < ApplicationController
 
+  include SchedulesHelper
+
   before_filter :signed_in_user
 
   def new
@@ -16,8 +18,8 @@ class SchedulesController < ApplicationController
     end
   end
 
-  def index
-    @upcoming_schedules = current_user.schedules
+  def show
+    render text: twilio_ml(params[:id])
   end
 
   def edit

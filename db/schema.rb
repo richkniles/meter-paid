@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713022257) do
+ActiveRecord::Schema.define(:version => 20120718021414) do
 
   create_table "schedules", :force => true do |t|
     t.datetime "time"
     t.text     "meter"
-    t.integer  "amount_cents", :default => 0
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.integer  "minutes_to_add", :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
   end
 
@@ -26,8 +26,11 @@ ActiveRecord::Schema.define(:version => 20120713022257) do
     t.string   "email"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.string   "phone"
+    t.string   "meter_company_account_pin"
+    t.string   "cv2"
   end
 
 end
