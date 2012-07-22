@@ -26,7 +26,7 @@ auth_token = '07a35bf73fee891d8af303fc7ac17102'
 
 #note: need a call handler URL as requirement of making the call
 @account.calls.create({
-  :from => '+5109240329', #trial sandbox #
+  :from => '+15109240329', #trial sandbox #
   :to => '+15106936860',
   :url => 'http://floating-wind-2082.herokuapp.com/schedules/8' #this needs to have the logic of dialing more numbers
 })

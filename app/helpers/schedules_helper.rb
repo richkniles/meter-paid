@@ -26,7 +26,7 @@ TWILIO_ML
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
     <Dial>
-  <Number sendDigits=#{extensions_and_delays}>
+  <Number sendDigits="#{extensions_and_delays}">
   #{meter_company_number}
   </Number>
     </Dial>
@@ -36,7 +36,7 @@ TWILIO_ML
   end
   
   def format_extensions_and_delays(schedule, user)
-    calling_from = user.phone
+    calling_from = user.phone.split("-").join
     pin_number = user.meter_company_account_pin
     credit_cv2 = user.cv2
     
