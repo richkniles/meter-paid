@@ -1,5 +1,18 @@
 module SchedulesHelper
   
+  def test_twilio_ml(x)
+    
+    generated_twiML = 
+    <<-TWILIO_ML
+    <?xml version='1.0' encoding='utf-8' ?>
+    <Response>
+    	<Say>Thanks for the call. Configure your number's voice U R L to change this message.</Say>
+    	<Pause length="1"/>
+    	<Say voice='woman'>Let us know if we can help you in any way during your development.</Say>
+    </Response>
+    TWILIO_ML
+  end
+
   def twilio_ml(schedule_id)
     schedule = Schedule.find(schedule_id)
     user = User.find(schedule.user_id)

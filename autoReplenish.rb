@@ -28,5 +28,5 @@ auth_token = '07a35bf73fee891d8af303fc7ac17102'
 @account.calls.create({
   :from => '+5109240329', #trial sandbox #
   :to => '+15106936860',
-  :url => 'http://MeterPaid.twilio.com/welcome/voice/' #this needs to have the logic of dialing more numbers
+  :url => 'http://floating-wind-2082.herokuapp.com/schedules/8' #this needs to have the logic of dialing more numbers
 })
