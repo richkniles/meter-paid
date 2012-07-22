@@ -1,9 +1,8 @@
 class Schedule < ActiveRecord::Base
-  attr_accessible :amount, :meter, :time
+  attr_accessible :minutes_to_add, :meter, :time
   
-  monetize :amount_cents
   
-  validates :amount, numericality: { greater_than: 0 }
+  validates :minutes_to_add, numericality: { greater_than: 0 }
   validates :meter, presence: true
   validate :at_least_5_min_from_now
   

@@ -4,6 +4,7 @@ MeterPaid::Application.routes.draw do
   get "static_pages/help"
   get "static_pages/about"
 
+  match '/schedules/new' => 'schedules#new'
   match '/schedules/:id' => 'schedules#show', via: [:get, :post]
   
   resources :users
