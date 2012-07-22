@@ -4,9 +4,11 @@ MeterPaid::Application.routes.draw do
   get "static_pages/help"
   get "static_pages/about"
 
+  match '/schedules/:id' => 'schedules#show', via: [:get, :post]
+  
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :schedules, only: [:new, :create, :update, :destroy, :show]
+  resources :schedules, only: [:new, :create, :update, :destroy]
   
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

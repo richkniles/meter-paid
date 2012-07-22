@@ -1,0 +1,6 @@
+Making the outgoing call:
+
+CallController makes the outgoing call
+
+create with params[:schedule_id]  PUT /calls/<shedule_id>
+

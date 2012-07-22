@@ -6,7 +6,7 @@ module SchedulesHelper
     
     extensions_and_delays = format_extensions_and_delays(schedule, user)
     
-    meter_company_number = "18666497275"
+    meter_company_number = "15106936860"
     
     generated_twiML = <<-TWILIO_ML
     <?xml version="1.0" encoding="UTF-8"?>

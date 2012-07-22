@@ -3,6 +3,7 @@ class SchedulesController < ApplicationController
   include SchedulesHelper
 
   before_filter :signed_in_user
+  skip_before_filter :signed_in_user, only: :show
 
   def new
     @schedule = current_user.schedules.new

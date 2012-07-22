@@ -1,0 +1,24 @@
+GET floating-wind-2082.herokuapp.com/?
+AccountSid       =       AC019c83da8ef75c162b430e909464f5a4&
+ToZip       =       94941&FromState       =       CA&
+Called       =       %2B14152382438&
+FromCountry       =       US&
+CallerCountry       =       US&
+CalledZip       =       94941&
+Direction       =       outbound-api&
+FromCity       =       NOVATO&
+CalledCountry       =       US&
+CallerState       =       CA&
+CallSid       =       CA9a1a00525d8f3ea44bbe766b4468d4d7&
+CalledState       =       CA&From       =       %2B14155992671&
+CallerZip       =       94949&
+FromZip       =       94949&
+CallStatus       =       in-progress&
+ToCity       =       SAN+FRANCISCO&
+ToState       =       CA&
+To       =       %2B14152382438&
+ToCountry       =       US&
+CallerCity       =       NOVATO&
+ApiVersion       =       2010-04-01&
+Caller       =       %2B14155992671&
+CalledCity       =       SAN+FRANCISCO 
