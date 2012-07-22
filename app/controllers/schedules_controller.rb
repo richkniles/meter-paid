@@ -20,7 +20,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    render text: test_twilio_ml(params[:id])
+    render text: twilio_ml(params[:id])
   end
 
   def edit

@@ -21,16 +21,17 @@ TWILIO_ML
     
     meter_company_number = "15106936860"
     
-    generated_twiML = <<-TWILIO_ML
-    <?xml version="1.0" encoding="UTF-8"?>
-    <Response>
-        <Dial>
-      <Number sendDigits=#{extensions_and_delays}>
-      #{meter_company_number}
-      </Number>
-        </Dial>
-    </Response>
-    TWILIO_ML
+    generated_twiML = 
+<<-TWILIO_ML
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    <Dial>
+  <Number sendDigits=#{extensions_and_delays}>
+  #{meter_company_number}
+  </Number>
+    </Dial>
+</Response>
+TWILIO_ML
 
   end
   
