@@ -26,8 +26,8 @@ auth_token = '07a35bf73fee891d8af303fc7ac17102'
 
 #note: need a call handler URL as requirement of making the call
 @account.calls.create({
-  :from => '+15109240329', #trial sandbox #
-  :to => '+15106936860',
-  :url => 'http://floating-wind-2082.herokuapp.com/schedules/8' #this needs to have the logic of dialing more numbers
+  :from => '+15106936860',#'+15109240329', #trial sandbox #
+  :to => '+14154415792',
+  :url => 'http://floating-wind-2082.herokuapp.com/twilio', #this needs to have the logic of dialing more numbers
   :SendDigits => "*ww5106936860ww12345ww12345ww20ww123wwwwwwwwwwwwwwwww"
 })

@@ -1,38 +1,25 @@
+require 'twilio-ruby'
+
 module SchedulesHelper
   
-  def test_twilio_ml(x)
-    
-    generated_twiML = 
-<<-TWILIO_ML
-<?xml version='1.0' encoding='utf-8' ?>
-<Response>
-	<Say>Thanks for the call. Configure your number's voice U R L to change this message.</Say>
-	<Pause length="1"/>
-	<Say voice='woman'>Let us know if we can help you in any way during your development.</Say>
-</Response>
-TWILIO_ML
- end
+  AccountSid = 'AC7e13cf3807d51eb5eed7a28ee2eb450c'
+  AuthToken = '07a35bf73fee891d8af303fc7ac17102'
+  
 
-  def twilio_ml(schedule_id)
-    schedule = Schedule.find(schedule_id)
+  def call_meter_company(schedule)
+    
     user = User.find(schedule.user_id)
     
-    extensions_and_delays = format_extensions_and_delays(schedule, user)
-    
-    meter_company_number = "15106936860"
-    
-    generated_twiML = 
-<<-TWILIO_ML
-<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-    <Dial>
-  <Number sendDigits="#{extensions_and_delays}">
-  #{meter_company_number}
-  </Number>
-    </Dial>
-</Response>
-TWILIO_ML
+    @client = Twilio::REST::Client.new AccountSid, AuthToken
+    @account = @client.account
 
+    @account.calls.create({
+      :from => '+15106936860',#'+15109240329', #trial sandbox #
+      :to => '+15106936860',
+      :url => 'http://floating-wind-2082.herokuapp.com/twilio',
+      :SendDigits => "#{format_extensions_and_delays(schedule, user)}"
+    })
+    
   end
   
   def format_extensions_and_delays(schedule, user)
@@ -57,4 +44,26 @@ TWILIO_ML
             
   end
   
+  def twilio_ml(schedule_id)
+    schedule = Schedule.find(schedule_id)
+    user = User.find(schedule.user_id)
+
+    extensions_and_delays = format_extensions_and_delays(schedule, user)
+
+    meter_company_number = "15106936860"
+
+    generated_twiML = 
+  <<-TWILIO_ML
+  <?xml version="1.0" encoding="UTF-8"?>
+  <Response>
+      <Dial>
+    <Number sendDigits="#{extensions_and_delays}">
+    #{meter_company_number}
+    </Number>
+      </Dial>
+  </Response>
+  TWILIO_ML
+
+  end
+ 
 end

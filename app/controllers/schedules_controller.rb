@@ -3,7 +3,7 @@ class SchedulesController < ApplicationController
   include SchedulesHelper
 
   before_filter :signed_in_user
-  skip_before_filter :signed_in_user, only: :show
+  skip_before_filter :signed_in_user, only: :tickle
 
   def new
     @schedule = current_user.schedules.new
@@ -19,8 +19,16 @@ class SchedulesController < ApplicationController
     end
   end
 
-  def show
-    render text: twilio_ml(params[:id])
+  def tickle
+    Schedule.where("status = #{Schedule::PENDING} and time < ?", Time.zone.now).each do |schedule|
+      if (schedule)
+        call_meter_company(schedule)
+        schedule.status = Schedule::COMPLETED_SUCCESSFULLY
+        schedule.save :validate => false
+        Rails.logger.info "Scheduled #{schedule.time} minutes on meter ##{schedule.meter} at #{schedule.time}.\n"
+      end
+    end
+    render nothing: true
   end
 
   def edit
@@ -32,8 +40,9 @@ class SchedulesController < ApplicationController
     if (@schedule.update_attributes(params[:schedule]))
       flash[:success] = "Scheduled feed updated."
       redirect_to root_path
+    else
+      render 'edit'
     end
-    
   end
 
   def destroy

@@ -13,15 +13,8 @@
 
 		<h1>Schedule Meter Feed</h1>
 		<%= form_for(@schedule) do |f| %>
-	
-			<%= f.label :time %>
-			<%= f.datetime_select :time, default: 10.minutes.from_now, :ampm => true %>
-	
-			<%= f.label :meter %>
-			<%= f.text_field :meter %>
-	
-			<%= f.label :amount %>
-			<%= f.text_field :amount %>
+			
+			<%= render 'schedule_fields', f: f %>
 			<p/><p/>
 			<%= f.submit "Save", method: 'put'%>
 	
