@@ -4,8 +4,7 @@ TWI_ML =
 <<-TWILIO_ML
 <?xml version='1.0' encoding='utf-8' ?>
 <Response>
-	<Pause length="15"/>
-	<Hangup/>
+	<Record timeout="5" transcribe="true" maxLength="60">
 </Response>
 TWILIO_ML
 
