@@ -21,4 +21,10 @@ TWILIO_ML
   def twilio
     render text: TWI_ML
   end
+  
+  def recorded
+    log.debug :params.inspect
+    render nothing: true
+  end
+  
 end

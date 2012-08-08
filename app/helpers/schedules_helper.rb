@@ -2,8 +2,8 @@ require 'twilio-ruby'
 
 module SchedulesHelper
   
-  AccountSid = 'AC7e13cf3807d51eb5eed7a28ee2eb450c'
-  AuthToken = '07a35bf73fee891d8af303fc7ac17102'
+  AccountSid = 'AC019c83da8ef75c162b430e909464f5a4' #MDP account
+  AuthToken = '21b3ac20f26865a84b05b9c8d7f54283'
   
 
   def call_meter_company(schedule)
@@ -14,7 +14,7 @@ module SchedulesHelper
     @account = @client.account
 
     @account.calls.create({
-      :from => '+15106936860',#'+15109240329', #trial sandbox #
+      :from => '+14155992671', #MDP account
       :to => '+15106936860',
       :url => 'http://meter-paid.herokuapp.com/twilio',
       :SendDigits => "#{format_extensions_and_delays(schedule, user)}"
