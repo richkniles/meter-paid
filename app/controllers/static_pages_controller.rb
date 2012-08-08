@@ -4,7 +4,7 @@ TWI_ML =
 <<-TWILIO_ML
 <?xml version='1.0' encoding='utf-8' ?>
 <Response>
-	<Record transcribe="true" maxLength="60" />
+	<Record transcribe="true" maxLength="60" transcribeCallback="http://meterpaid.herokuapp.com/recorded"/>
 	<Hangup />
 </Response>
 TWILIO_ML
