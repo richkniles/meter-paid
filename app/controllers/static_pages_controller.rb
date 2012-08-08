@@ -5,6 +5,7 @@ TWI_ML =
 <?xml version='1.0' encoding='utf-8' ?>
 <Response>
 	<Record timeout="5" transcribe="true" maxLength="60">
+	<Hangup>
 </Response>
 TWILIO_ML
 
