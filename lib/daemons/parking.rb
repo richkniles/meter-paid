@@ -17,7 +17,7 @@ end
 
 while($running) do
 
-  open("http://localhost:3000/tickle")
+  open("http://meter-paid.herokuapp.com/tickle")
   sleep 30
 
 end
