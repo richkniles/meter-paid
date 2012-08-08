@@ -4,8 +4,8 @@ TWI_ML =
 <<-TWILIO_ML
 <?xml version='1.0' encoding='utf-8' ?>
 <Response>
-	<Pause length="15"/>
-	<Hangup/>
+	<Record transcribe="true" maxLength="60" transcribeCallback="http://meter-paid.herokuapp.com/recorded"/>
+	<Hangup />
 </Response>
 TWILIO_ML
 
@@ -22,4 +22,10 @@ TWILIO_ML
   def twilio
     render text: TWI_ML
   end
+  
+  def recorded
+    logger.debug :params.inspect
+    render nothing: true
+  end
+  
 end
