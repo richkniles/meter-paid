@@ -11,14 +11,14 @@ Rails.application.require_environment!
 
 
 $running = true
-Signal.trap("TERM") do
+Signal.trap("TERM") do 
   $running = false
 end
 
 while($running) do
-
+  
   open("http://localhost:3000/tickle")
   sleep 30
-
+  
 end
 

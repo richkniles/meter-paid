@@ -16,7 +16,7 @@ module SchedulesHelper
     @account.calls.create({
       :from => '+15106936860',#'+15109240329', #trial sandbox #
       :to => '+15106936860',
-      :url => 'http://floating-wind-2082.herokuapp.com/twilio',
+      :url => 'http://localhost:3000/twilio',
       :SendDigits => "#{format_extensions_and_delays(schedule, user)}"
     })
     
