@@ -24,7 +24,7 @@ TWILIO_ML
   end
   
   def recorded
-    log.debug :params.inspect
+    logger.debug :params.inspect
     render nothing: true
   end
   
