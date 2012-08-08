@@ -39,9 +39,7 @@ module SchedulesHelper
             "ww" + 
             minutes_to_add.to_s + 
             "ww" + 
-            credit_cv2 + 
-            "wwwwwwwwwwwwwwwww"
-            
+            credit_cv2            
   end
   
   def twilio_ml(schedule_id)
